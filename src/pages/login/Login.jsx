@@ -24,6 +24,7 @@ function Login() {
         const newUser={
           name:result.user?.displayName,
           email:result.user?.email,
+          photo:result.user?.photoURL,
           role:"member"
         }
         axiosPublic.post("/users",newUser)
@@ -75,7 +76,7 @@ const handleForgetPass=()=>{
       <div className="container mx-auto">
       <div className="animate__animated animate__fadeIn flex items-center justify-center min-h-screen bg-lightBlue/10">
         <div className="w-full max-w-[700px]  p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-center text-deepBlue">
+          <h2 className="text-2xl font-bold text-center text-black">
             Login to your account
           </h2>
           <form onSubmit={handleEmailLogin}  className="mt-4">

@@ -7,13 +7,15 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: black;
+    background-color: #1A1A1A;
 }
 h1,h2,h3,h4,h5{
     font-family: "Saira", serif;
+    color: #fff;
 }
 p{
     font-family: "Inter", serif;
+    color: #fff;
 }
 section{
     background: #1A1A1A;

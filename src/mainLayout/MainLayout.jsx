@@ -1,10 +1,14 @@
 import React from 'react'
 import Header from "../components/Header";
-import { Outlet } from "react-router"
+import { Outlet } from "react-router";
+import HeadRoom from "react-headroom"
 function MainLayout() {
   return (
     <>
-        <Header />
+    <HeadRoom>
+    <Header />
+    </HeadRoom>
+        
         <Outlet />
     </>
   )

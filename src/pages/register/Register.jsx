@@ -10,8 +10,8 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 function Register() {
   const axiosPublic=useAxiosPublic()
-  const { createUser, googleLogin} = useContext(AuthContext);
-  const googleProvider = new GoogleAuthProvider();
+  const { createUser} = useContext(AuthContext);
+  
   const navigate = useNavigate();
   //register
   const handleRegister = (e) => {
@@ -70,7 +70,7 @@ function Register() {
       <div className="container  mx-auto ">
       <div className="flex items-center justify-center min-h-screen">
         <div className="w-full max-w-[700px] p-6 bg-white rounded-lg shadow-md">
-          <h2 className={`text-3xl   font-bold text-center`}>Register your account</h2>
+          <h2 className={`text-3xl   font-bold text-center text-black`}>Register to your account</h2>
 
           {/* Signup Form */}
           <form onSubmit={handleRegister} className="mt-4">
@@ -136,7 +136,7 @@ function Register() {
          
 
 
-          <p className={`mt-4 text-center text-sm`}>
+          <p className={`mt-4 text-center text-sm text-gray-400`}>
             Already Have An Account?{" "}
             <Link to="/login" className={`font-semibold text-red-500`}>
               Please Login
