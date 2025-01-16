@@ -3,13 +3,13 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../ContextProviders/AuthContextProvider';
 import Button from './Button';
+import Logo from './Logo';
 function Header() {
   const{user,logoutUser}=useContext(AuthContext)
   return (
     <Navbar className='py-6 font-semibold' fluid rounded>
     <Navbar.Brand href="https://flowbite-react.com">
-      
-      <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
+      <Logo />
     </Navbar.Brand>
     <div className="flex md:order-2">
       {
