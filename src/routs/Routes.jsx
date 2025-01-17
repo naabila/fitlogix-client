@@ -22,6 +22,7 @@ import ActivityLog from "../pages/Dashboard/member/ActivityLog";
 import Profile from "../pages/Dashboard/member/Profile";
 import BookedTrainer from "../pages/Dashboard/member/BookedTrainer";
 import AllSubscriber from "../pages/Dashboard/admin/AllSubscriber";
+import AdminRoute from "./AdminRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
       //admin routes
       {
         path:'allsubscriber',
-        element:<AllSubscriber />
+        element:<AdminRoute><AllSubscriber /></AdminRoute>
       },
       {
         path: "allusers",
