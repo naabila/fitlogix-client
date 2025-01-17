@@ -1,87 +1,119 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import { Link, NavLink } from 'react-router-dom';
-import { AuthContext } from '../ContextProviders/AuthContextProvider';
-import Button from './Button';
-import Logo from './Logo';
+import { Link, NavLink } from "react-router-dom";
+import Headroom from "react-headroom";
+import { AuthContext } from "../ContextProviders/AuthContextProvider";
+import Button from "./Button";
+import Logo from "./Logo";
+
 function Header() {
-  const{user,logoutUser}=useContext(AuthContext)
+  const { user, logoutUser } = useContext(AuthContext);
+
   return (
-    <Navbar className='py-6 font-semibold' fluid rounded>
-    <Navbar.Brand href="https://flowbite-react.com">
-      <Logo />
-    </Navbar.Brand>
-    <div className="flex md:order-2">
-      {
-        user?
-        <Dropdown
-        arrowIcon={false}
-        inline
-        label={
-          <Avatar alt="User settings" img={user?.photoURL} rounded />
-        }
+   
+    <Headroom>
+      
+      <Navbar
+        className="bg-black bg-opacity-80 py-6 font-semibold z-50 shadow-md lg:px-20"
+        fluid
+        rounded
       >
-        <Dropdown.Header>
-          <span className="block text-sm">{user?.displayName}</span>
-          <span className="block truncate text-sm font-medium">{user?.email}</span>
-        </Dropdown.Header>
-       
-        <Dropdown.Divider />
-        <Dropdown.Item onClick={logoutUser}>Sign out</Dropdown.Item>
-      </Dropdown>
-      :
-      <div className='hidden md:flex'>
-       <Link to="/login">
-        <Button>Login</Button>
-      </Link></div>
-      }
-      <Navbar.Toggle />
-    </div>
-    <Navbar.Collapse>
-    <NavLink
-        to="/"
-        className={ ({ isActive }) =>
-          isActive ? "text-deepOrange  text-[18px]" : "text-base"
-        }
-      >Home</NavLink>
-      <NavLink
-        to="/alltrainer"
-        className={ ({ isActive }) =>
-          isActive ? "text-deepOrange  text-[18px]" : "text-base"
-        }
-      >All Trainer</NavLink>
-      <NavLink
-        to="/allclass"
-        className={ ({ isActive }) =>
-          isActive ? "text-deepOrange  text-[18px]" : "text-base"
-        }
-      >All Class</NavLink>
-     {
-      user?
-      <NavLink
-        to="/dashboard"
-        className={ ({ isActive }) =>
-          isActive ? "text-deepOrange  text-[18px]" : "text-base"
-        }
-      >Dashboard</NavLink>
-      :""
-     }
-     <NavLink
-        to="/forum"
-        className={ ({ isActive }) =>
-          isActive ? "text-deepOrange  text-[18px]" : "text-base"
-        }
-      >Forum</NavLink>
-     <div className='md:hidden'>
-      <Link to="/login">
-        <button>Login</button>
-      </Link>
-     </div>
-     
-     
-    </Navbar.Collapse>
-  </Navbar>
-  )
+        <Navbar.Brand href="https://flowbite-react.com">
+          <Logo />
+        </Navbar.Brand>
+        <div className="flex md:order-2">
+          {user ? (
+            <Dropdown
+              arrowIcon={false}
+              inline
+              label={<Avatar alt="User settings" img={user?.photoURL} rounded />}
+            >
+              <Dropdown.Header>
+                <span className="block text-sm">{user?.displayName}</span>
+                <span className="block truncate text-sm font-medium">
+                  {user?.email}
+                </span>
+              </Dropdown.Header>
+
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={logoutUser}>Sign out</Dropdown.Item>
+            </Dropdown>
+          ) : (
+            <div className="hidden md:flex">
+              <Link to="/login">
+                <Button>Login</Button>
+              </Link>
+            </div>
+          )}
+          <Navbar.Toggle />
+        </div>
+        <Navbar.Collapse>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-deepOrange text-[18px]"
+                : "text-white text-base hover:text-gray-300"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/alltrainer"
+            className={({ isActive }) =>
+              isActive
+                ? "text-deepOrange text-[18px]"
+                : "text-white text-base hover:text-gray-300"
+            }
+          >
+            All Trainer
+          </NavLink>
+          <NavLink
+            to="/allclass"
+            className={({ isActive }) =>
+              isActive
+                ? "text-deepOrange text-[18px]"
+                : "text-white text-base hover:text-gray-300"
+            }
+          >
+            All Class
+          </NavLink>
+          {user ? (
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-deepOrange text-[18px]"
+                  : "text-white text-base hover:text-gray-300"
+              }
+            >
+              Dashboard
+            </NavLink>
+          ) : (
+            ""
+          )}
+          <NavLink
+            to="/forum"
+            className={({ isActive }) =>
+              isActive
+                ? "text-deepOrange text-[18px]"
+                : "text-white text-base hover:text-gray-300"
+            }
+          >
+            Forum
+          </NavLink>
+          <div className="md:hidden">
+            <Link to="/login">
+              <button className="text-white">Login</button>
+            </Link>
+          </div>
+        </Navbar.Collapse>
+      </Navbar>
+      
+    </Headroom>
+   
+    
+  );
 }
 
-export default Header
+export default Header;

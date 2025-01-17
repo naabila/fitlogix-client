@@ -7,7 +7,7 @@ function Logo() {
         <Link to='/'>
         <div className='flex gap-2 items-center'>
         <SiOpenaigym className='text-[#FF5E00] text-3xl font-bold' />
-        <h2 className='text-black font-bold text-3xl'>Fit <span className='text-[#FF5E00]'>Logix</span> </h2>
+        <h2 className='text-white font-bold text-3xl'>Fit <span className='text-[#FF5E00]'>Logix</span> </h2>
         </div>
         </Link>
     </>
