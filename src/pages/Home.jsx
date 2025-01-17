@@ -1,7 +1,10 @@
 import React from 'react'
 import { Carousel } from "flowbite-react";
 import 'flowbite';
+import useRole from '../hooks/useRole';
 function Home() {
+  const[role,isLoading]=useRole();
+  console.log(role)
   return (
     <>
     
