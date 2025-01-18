@@ -31,10 +31,11 @@ function Login() {
         .then(res=>{
           if(res.data.insertedId){
             toast.success("Logged in successfully with Google");
+            
           }
         })
         
-        navigate(location?.state?location.state:"/")
+         navigate(location?.state?location.state:"/")
       })
       .catch((err) => {
         toast.error("Error during Google login: " + err.message);

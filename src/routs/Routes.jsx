@@ -23,6 +23,10 @@ import Profile from "../pages/Dashboard/member/Profile";
 import BookedTrainer from "../pages/Dashboard/member/BookedTrainer";
 import AllSubscriber from "../pages/Dashboard/admin/AllSubscriber";
 import AdminRoute from "./AdminRoute";
+import Error from "../pages/Error";
+import TrainerDetails from "../pages/Dashboard/admin/TrainerDetails";
+import BeATrainer from "../pages/Dashboard/admin/BeATrainer";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +39,16 @@ const router = createBrowserRouter([
       {
         path: "/alltrainer",
         element: <AllTrainer />,
+      },
+      {
+        path:"/trainerdetails",
+        element:<TrainerDetails />
+      },
+      {
+        path:"/betrainer",
+        element:<PrivateRoute>
+          <BeATrainer />
+        </PrivateRoute>
       },
       {
         path: "/allclass",
@@ -53,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path:'*',
+    element:<Error />
   },
   {
     path: "dashboard",

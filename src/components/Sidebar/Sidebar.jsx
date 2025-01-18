@@ -13,7 +13,12 @@ import { MdForum } from "react-icons/md";
 import { RxActivityLog } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
 import { GrYoga } from "react-icons/gr";
+import useRole from '../../hooks/useRole';
 function Sidebar() {
+//user roles
+const[role,isLoading]=useRole();
+
+
    const adminLinks=<div className='flex flex-col gap-8'>
       <NavLink
               to="allusers"
@@ -51,6 +56,12 @@ function Sidebar() {
                 isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
               }
             ><MdOutlineForum  className='text-base' /><span>Forum</span> </NavLink>
+            <NavLink
+        to="addforum"
+        className={ ({ isActive }) =>
+          isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
+        }
+      ><MdForum className='text-base' /><span>Add Forum</span> </NavLink>
 
             
 
@@ -116,9 +127,17 @@ const memberLinks=<div className='flex flex-col gap-8'>
    <div className="h-full px-3 py-4 overflow-y-auto bg-[#3c3c3c] text-white ">
       <Logo />
       <ul className="space-y-2 font-medium mt-8">
-        {adminLinks}
-        {trainerLinks}
-        {memberLinks}
+      {
+  role === "admin"
+    ? adminLinks
+    : role === "trainer"
+    ? trainerLinks
+    : memberLinks
+}
+
+        
+        
+        
       </ul>
    </div>
 </aside>

@@ -3,8 +3,9 @@ import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { Link, NavLink } from "react-router-dom";
 import Headroom from "react-headroom";
 import { AuthContext } from "../ContextProviders/AuthContextProvider";
-import Button from "./Button";
+
 import Logo from "./Logo";
+import CustomBtn from "./CustomBtn";
 
 function Header() {
   const { user, logoutUser } = useContext(AuthContext);
@@ -41,7 +42,7 @@ function Header() {
           ) : (
             <div className="hidden md:flex">
               <Link to="/login">
-                <Button>Login</Button>
+                <CustomBtn>Login</CustomBtn>
               </Link>
             </div>
           )}

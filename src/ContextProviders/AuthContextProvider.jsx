@@ -36,6 +36,7 @@ const changePassword=(email)=>{
   useEffect(()=>{
     const unsubscribe=onAuthStateChanged(auth, (currentUser) => {
   setUser(currentUser);
+ 
   //get token and store
   if(currentUser){
     const userInfo={email:currentUser.email};
@@ -56,7 +57,7 @@ const changePassword=(email)=>{
     return ()=>{
       return unsubscribe()
     }
-  },[])
+  },[axiosPublic])
 
   // Logout
   const logoutUser = () => {
