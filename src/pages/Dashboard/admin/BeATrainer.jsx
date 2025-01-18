@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { Textarea } from "flowbite-react";
 import Select from "react-select";
 import { AuthContext } from "../../../ContextProviders/AuthContextProvider";
 import useRole from "../../../hooks/useRole";
 import Swal from 'sweetalert2'
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 const BeATrainer = () => {
+
+  const axiosPublic=useAxiosPublic();
   const{user}=useContext(AuthContext);
   const[role,isLoading]=useRole()
   const skills = [
@@ -33,7 +37,8 @@ const BeATrainer = () => {
     profileImage: "",
     skills: [],
     availableDays: [],
-    availableTime: ""
+    availableTime: "",
+    description:"",
   });
 
   const handleChange = (e) => {
@@ -54,7 +59,7 @@ const BeATrainer = () => {
     setFormData({ ...formData, availableDays: selected });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     const selectedDays = formData.availableDays.map((day) => day.value);
     e.preventDefault();
     const form=e.target;
@@ -65,14 +70,27 @@ const BeATrainer = () => {
     const skill=formData.skills;
     const days=selectedDays;
     const availableTime=parseInt(form.availableTime.value);
-    const formDatas={name,email,age,image,skill,days,availableTime,status:"pending",role};
+    const description=form.description.value;
+    const formDatas={name,email,age,image,skill,days,availableTime,description,status:"pending",role};
     console.log(formDatas);
-    Swal.fire({
-      title: "Request Successfull!",
-      text: "Successfully applied for trainer position!",
-      icon: "success"
-    });
-  };
+  try{
+    const res=await axiosPublic.post('/appliedtrainer',formDatas);
+    if(res.data.insertedId){
+      e.target.reset()
+      Swal.fire({
+        title: "Application Sent!",
+        text: "You applied successfully",
+        icon: "success"
+      });
+      
+    
+    }
+    
+  }catch(err){
+    console.log(err)
+  }
+    
+  }
 
   return (
     <Fade>
@@ -176,6 +194,15 @@ const BeATrainer = () => {
             required
             className="block w-full p-2 border border-gray-300 rounded-lg"
           />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 font-medium text-white">Description</label>
+          <Textarea id="comment" placeholder="Leave a comment..." required rows={5}
+          value={formData.description}
+          name="description"
+          onChange={handleChange}
+          
+           />
         </div>
 
         {/* Submit Button */}
