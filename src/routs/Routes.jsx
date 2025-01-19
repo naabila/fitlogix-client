@@ -11,7 +11,7 @@ import AllTrainer from "../pages/Dashboard/admin/AllTrainer";
 import AllClass from "../pages/Dashboard/admin/AllClass";
 import Forum from "../pages/Forum/Forum";
 import AllUsers from "../pages/Dashboard/admin/AllUsers";
-import AppliedTrainer from "../pages/Dashboard/admin/AppliedTrainer";
+import AppliedTrainer from "../pages/Dashboard/admin/appliedTrainer/AppliedTrainer";
 import Balance from "../pages/Dashboard/admin/Balance";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import AddClass from "../pages/Dashboard/admin/AddClass";
@@ -27,6 +27,7 @@ import Error from "../pages/Error";
 import TrainerDetails from "../pages/Dashboard/admin/TrainerDetails";
 import BeATrainer from "../pages/Dashboard/admin/BeATrainer";
 import PrivateRoute from "./PrivateRoute";
+import AppliedTrainerDetails from "../pages/Dashboard/admin/appliedTrainer/AppliedTrainerDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,12 +69,12 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  // {
+  //   path:'*',
+  //   element:<Error />
+  // },
   {
-    path:'*',
-    element:<Error />
-  },
-  {
-    path: "dashboard",
+    path: "/dashboard",
     element: <DashboardLayout />,
     children: [
       //admin routes
@@ -83,23 +84,28 @@ const router = createBrowserRouter([
       },
       {
         path: "allusers",
-        element: <AllUsers />,
+        element: <AdminRoute><AllUsers /></AdminRoute>,
       },
       {
         path: "alltrainer",
-        element: <AllTrainer />,
+        element: <AdminRoute><AllTrainer /></AdminRoute>,
       },
       {
         path: "appliedtrainer",
-        element: <AppliedTrainer />,
+        element: <AdminRoute><AppliedTrainer /></AdminRoute>,
+      },
+      {
+        path: 'appliedtrainerdetailes/:id',
+       
+        element: <AdminRoute><AppliedTrainerDetails /></AdminRoute>,
       },
       {
         path: "balance",
-        element: <Balance />,
+        element: <AdminRoute><Balance /></AdminRoute>,
       },
       {
         path:"addclass",
-        element:<AddClass />
+        element:<AdminRoute><AddClass /></AdminRoute>
       },
       {
         path:'forum',
