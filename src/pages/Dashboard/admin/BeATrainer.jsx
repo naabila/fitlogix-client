@@ -76,13 +76,13 @@ const BeATrainer = () => {
   try{
     const res=await axiosPublic.post('/appliedtrainer',formDatas);
     if(res.data.insertedId){
-      e.target.reset()
+      
       Swal.fire({
         title: "Application Sent!",
         text: "You applied successfully",
         icon: "success"
       });
-      
+      e.target.reset()
     
     }
     

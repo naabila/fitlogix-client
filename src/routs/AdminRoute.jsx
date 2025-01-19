@@ -2,15 +2,18 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../ContextProviders/AuthContextProvider'
 import useRole from '../hooks/useRole';
 import { Navigate, useLocation } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 function AdminRoute({children}) {
-    const{user}=useContext(AuthContext);
+  
+    const{user,loading}=useContext(AuthContext);
     const[role,isLoading]=useRole();
     const location=useLocation();
-    if (isLoading) return <p>Loading</p>
+    if(loading) return <Loading></Loading>
+    if (isLoading) return <Loading></Loading>
     if (role === 'admin') return children
   return (
-    <Navigate to="/dashboard" state={{ from: location }} replace></Navigate>
+    <Navigate to="/dashboard" state={ location.pathname} replace></Navigate>
   )
 }
 

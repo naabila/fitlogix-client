@@ -3,12 +3,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CustomBtn from '../../../components/CustomBtn';
 import  trainer from "../../../assets/trainer.jpg"
+import { Fade } from 'react-awesome-reveal';
 function TrainerDetails() {
   return (
     <>
         <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         {/* Left Column */}
+        <Fade direction="left" triggerOnce>
         <div className="flex flex-col items-center md:items-start">
           <img
             src="https://cdn.pixabay.com/photo/2021/11/10/18/21/woman-6784555_640.jpg"
@@ -48,8 +50,10 @@ function TrainerDetails() {
             </a>
           </div>
         </div>
+        </Fade>
 
         {/* Right Column */}
+        <Fade direction='right' triggerOnce>
         <div>
           <h2 className="text-2xl font-bold">David Smith</h2>
           <p className="text-sm text-gray-600">Fitness Trainer</p>
@@ -88,11 +92,13 @@ function TrainerDetails() {
             </div>
           </div>
         </div>
+        </Fade>
       </div>
     </div>
 
     {/* become a trainer CTA */}
     
+    <Fade>
     <div className="container mx-auto">
     <section
      style={{
@@ -117,6 +123,7 @@ function TrainerDetails() {
       </div>
     </section>
     </div>
+    </Fade>
 
 
     </>

@@ -69,10 +69,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path:'*',
-  //   element:<Error />
-  // },
+  {
+    path:'*',
+    element:<Error />
+  },
   {
     path: "/dashboard",
     element: <DashboardLayout />,
