@@ -6,11 +6,13 @@ import { AuthContext } from "../../../ContextProviders/AuthContextProvider";
 import useRole from "../../../hooks/useRole";
 import Swal from 'sweetalert2'
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useNavigate } from "react-router-dom";
 const BeATrainer = () => {
 
   const axiosPublic=useAxiosPublic();
   const{user}=useContext(AuthContext);
-  const[role,isLoading]=useRole()
+  const[role,isLoading]=useRole();
+  const navigate=useNavigate();
   const skills = [
     "Yoga", "Pilates", "Strength Training", "Cardio Workouts", "CrossFit",
     "HIIT", "Bodybuilding", "Weight Loss Coaching", "Functional Training",
@@ -84,7 +86,8 @@ const BeATrainer = () => {
         text: "You applied successfully",
         icon: "success"
       });
-      e.target.reset()
+      e.target.reset();
+      navigate('/')
     
     }
     

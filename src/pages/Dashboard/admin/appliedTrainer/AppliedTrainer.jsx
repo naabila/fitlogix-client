@@ -3,7 +3,6 @@ import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import useAxiosSecure from '../../../../hooks/useAxiosSecure'
 import SectionHeading from '../../../../components/SectionHeading';
-import CustomBtn from '../../../../components/CustomBtn';
 import { Link } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
 

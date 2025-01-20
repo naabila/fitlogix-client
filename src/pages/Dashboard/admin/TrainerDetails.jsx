@@ -1,96 +1,106 @@
 import { Button } from 'flowbite-react'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CustomBtn from '../../../components/CustomBtn';
 import  trainer from "../../../assets/trainer.jpg"
 import { Fade } from 'react-awesome-reveal';
+import Loading from '../../../components/Loading';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
 function TrainerDetails() {
+  const{id}=useParams();
+  
+  const axiosPublic=useAxiosPublic();
+  const { data, isLoading } = useQuery({
+    queryKey: ['trainer'],
+    queryFn: async()=>{
+      try{
+        const {data}=await axiosPublic.get(`/trainer/${id}`)
+        return data;
+      }catch(err){
+        console.log(err)
+      }
+    },
+  });
+  if(isLoading){
+    return <Loading></Loading>
+  }
+  
+  if(!data || data.length===0){
+    return <p>No data found</p>
+  }
+  const{image,name,experience,email,description,days,age,skill}=data
   return (
     <>
         <div className="container mx-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center justify-center">
         {/* Left Column */}
         <Fade direction="left" triggerOnce>
         <div className="flex flex-col items-center md:items-start">
           <img
-            src="https://cdn.pixabay.com/photo/2021/11/10/18/21/woman-6784555_640.jpg"
+            src={image}
             alt="Trainer"
             className="rounded-md"
           />
           <p className="mt-4">
-            <span className="font-bold">Experience:</span> 3 Years
+            <span className="font-bold">Experience:</span> {experience} Years
           </p>
           <p>
-            <span className="font-bold">Age:</span> 28
+            <span className="font-bold">Age:</span> {age}
           </p>
-          <p>
-            <span className="font-bold">Weight:</span> 77 kg
-          </p>
+         
           <p>
             <span className="font-bold">Email:</span>{" "}
             <a href="mailto:example@example.com" className="text-blue-500">
-              example@example.com
+             {email}
             </a>
           </p>
           <p>
             <span className="font-bold">Phone:</span> 801546142343243
           </p>
-          <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-blue-500">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="text-blue-400">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" className="text-blue-700">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="#" className="text-red-600">
-              <i className="fab fa-google"></i>
-            </a>
-          </div>
+          <h3 className="mt-4 text-xl font-bold text-orange-600">Available Slots:</h3>
+          <div className='flex gap-3 mt-5'>
+        {
+          days.map((d,indx)=>{
+           return(
+            
+           <Link key={indx} to="/booktrainer">
+           <input
+  type="button"
+  value={d} 
+  className="text-deepOrange border border-deepOrange px-8 py-2 cursor-pointer rounded"
+/>
+           
+           </Link>
+          
+           )
+          })
+        }
+        </div>
         </div>
         </Fade>
 
         {/* Right Column */}
         <Fade direction='right' triggerOnce>
         <div>
-          <h2 className="text-2xl font-bold">David Smith</h2>
+          <h2 className="text-2xl font-bold">{name}</h2>
           <p className="text-sm text-gray-600">Fitness Trainer</p>
           <h3 className="mt-4 text-xl font-bold text-orange-600">Biography:</h3>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales
-            ante quis justo egestas euismod. Aenean feugiat nisi commodo quam
-            ornare dictum.
+          <p className="text-gray-300">
+           {description}
           </p>
           <h3 className="mt-4 text-xl font-bold text-orange-600">Skills:</h3>
-          <div className="mt-2">
-            <p className="flex justify-between">
-              <span>Yoga</span>
-              <span>95%</span>
-            </p>
-            <div className="w-full bg-gray-300 rounded h-2">
-              <div className="bg-orange-500 h-2 rounded" style={{ width: "95%" }}></div>
-            </div>
-          </div>
-          <div className="mt-2">
-            <p className="flex justify-between">
-              <span>Boxing</span>
-              <span>68%</span>
-            </p>
-            <div className="w-full bg-gray-300 rounded h-2">
-              <div className="bg-orange-500 h-2 rounded" style={{ width: "68%" }}></div>
-            </div>
-          </div>
-          <div className="mt-2">
-            <p className="flex justify-between">
-              <span>GYM</span>
-              <span>89%</span>
-            </p>
-            <div className="w-full bg-gray-300 rounded h-2">
-              <div className="bg-orange-500 h-2 rounded" style={{ width: "89%" }}></div>
-            </div>
-          </div>
+          <div className='flex gap-3'>
+        {
+          skill.map((s,indx)=>{
+           return(
+            
+           <button key={indx} className='text-deepOrange border border-deepOrange px-2'>{s}</button>
+          
+           )
+          })
+        }
+        </div>
         </div>
         </Fade>
       </div>

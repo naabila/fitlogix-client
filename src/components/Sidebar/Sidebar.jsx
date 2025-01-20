@@ -20,12 +20,13 @@ const[role,isLoading]=useRole();
 
 
    const adminLinks=<div className='flex flex-col gap-8'>
-      <NavLink
-              to="allusers"
+   <NavLink
+              to="alltraineradmin"
               className={ ({ isActive }) =>
                 isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
               }
-            ><FaRegUser className='text-base' /><span>All Users</span> </NavLink>
+            ><MdOutlineUnsubscribe className='text-base' /><span>All Trainer</span> </NavLink>
+     
             <NavLink
               to="allsubscriber"
               className={ ({ isActive }) =>

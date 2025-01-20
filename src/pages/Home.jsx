@@ -2,6 +2,7 @@ import React from 'react'
 import { Carousel } from "flowbite-react";
 import 'flowbite';
 import useRole from '../hooks/useRole';
+import NewsLetter from '../components/homepage/NewsLetter';
 function Home() {
   const[role,isLoading]=useRole();
   console.log(role)
@@ -27,17 +28,9 @@ function Home() {
     </div>
 </section>
 
-    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-      <Carousel>
-      <h2>carousel</h2>
-        <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-        <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
-      </Carousel>
-    </div>
-    </>
+<NewsLetter />
+   
+</>
   )
 }
 

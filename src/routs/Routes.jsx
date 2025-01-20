@@ -10,10 +10,9 @@ import DashboardLayout from "../mainLayout/DashboardLayout";
 import AllTrainer from "../pages/Dashboard/admin/AllTrainer";
 import AllClass from "../pages/Dashboard/admin/AllClass";
 import Forum from "../pages/Forum/Forum";
-import AllUsers from "../pages/Dashboard/admin/AllUsers";
+
 import AppliedTrainer from "../pages/Dashboard/admin/appliedTrainer/AppliedTrainer";
 import Balance from "../pages/Dashboard/admin/Balance";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import AddClass from "../pages/Dashboard/admin/AddClass";
 import ManageSlots from "../pages/Dashboard/trainer/ManageSlots";
 import AddNewSlot from "../pages/Dashboard/trainer/AddNewSlot";
@@ -28,6 +27,7 @@ import TrainerDetails from "../pages/Dashboard/admin/TrainerDetails";
 import BeATrainer from "../pages/Dashboard/admin/BeATrainer";
 import PrivateRoute from "./PrivateRoute";
 import AppliedTrainerDetails from "../pages/Dashboard/admin/appliedTrainer/AppliedTrainerDetails";
+import AllTrainerAdmin from "../pages/Dashboard/admin/appliedTrainer/AllTrainerAdmin";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +50,10 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <BeATrainer />
         </PrivateRoute>
+      },
+      {
+        path:"/booktrainer",
+        element:<PrivateRoute><BookedTrainer /></PrivateRoute>
       },
       {
         path: "/allclass",
@@ -82,10 +86,10 @@ const router = createBrowserRouter([
         path:'allsubscriber',
         element:<AdminRoute><AllSubscriber /></AdminRoute>
       },
-      {
-        path: "allusers",
-        element: <AdminRoute><AllUsers /></AdminRoute>,
-      },
+     {
+      path:'alltraineradmin',
+      element:<AllTrainerAdmin />
+     },
       {
         path: "alltrainer",
         element: <AdminRoute><AllTrainer /></AdminRoute>,

@@ -6,6 +6,9 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic"
 import { useQuery } from '@tanstack/react-query'
 import Loading from '../../../components/Loading';
 import { Link } from 'react-router-dom';
+import { CiFacebook } from "react-icons/ci";
+import { FiTwitter } from "react-icons/fi";
+import { FaInstagram } from "react-icons/fa";
 
 function AllTrainer() {
  const axiosPublic=useAxiosPublic();
@@ -46,18 +49,20 @@ function AllTrainer() {
             <div key={_id} className=" bg-[#3c3c3c] text-white rounded-lg shadow-lg overflow-hidden">
       {/* Image */}
       <div className="h-48 w-full overflow-hidden">
+        
         <img
           className="h-full w-full object-cover"
           src={image}
           alt="Card"
         />
+        
       </div>
       {/* Content */}
       <div className="p-4">
         <h2 className="text-xl font-bold">{name}</h2>
         <div className='flex items-center gap-2'><h3 className='font-semibold'>Age:</h3>{age}</div>
         <div className='flex items-center gap-2'><h3 className='font-semibold'>Experience:</h3>{experience} years</div>
-        <div className='flex items-center gap-2'><h3 className='font-semibold'>Slot:</h3>
+        <div className='flex items-center gap-2 mt-2'><h3 className='font-semibold'>Slot:</h3>
         {
           days.map((s,indx)=>{
             return <button className='text-deepOrange text-sm border border-deepOrange px-5 rounded-full' key={indx}>{s}</button>
@@ -71,6 +76,11 @@ function AllTrainer() {
             Know more
           </Link>
         </p>
+        <div className="socials my-3 flex gap-3 text-deepOrange">
+        <CiFacebook />
+        <FiTwitter />
+        <FaInstagram />
+        </div>
       </div>
     </div>
           )
