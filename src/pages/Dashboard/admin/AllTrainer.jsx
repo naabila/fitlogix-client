@@ -41,7 +41,7 @@ function AllTrainer() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-10 gap-8">
       {
         data.map(trainer=>{
-          const{name,image,experience,days,description,_id}=trainer;
+          const{name,age,image,experience,days,description,_id}=trainer;
           return(
             <div key={_id} className=" bg-[#3c3c3c] text-white rounded-lg shadow-lg overflow-hidden">
       {/* Image */}
@@ -55,8 +55,17 @@ function AllTrainer() {
       {/* Content */}
       <div className="p-4">
         <h2 className="text-xl font-bold">{name}</h2>
+        <div className='flex items-center gap-2'><h3 className='font-semibold'>Age:</h3>{age}</div>
+        <div className='flex items-center gap-2'><h3 className='font-semibold'>Experience:</h3>{experience} years</div>
+        <div className='flex items-center gap-2'><h3 className='font-semibold'>Slot:</h3>
+        {
+          days.map((s,indx)=>{
+            return <button className='text-deepOrange text-sm border border-deepOrange px-5 rounded-full' key={indx}>{s}</button>
+          })
+        }
+        </div>
         <p className="text-gray-300 mt-2">
-          {description.substring(0,90)} ... <Link to={`/trainerdetails/${_id}`}
+        {description.substring(0,90)} ... <Link to={`/trainerdetails/${_id}`}
           className='text-deepOrange text-sm'
           >
             Know more
