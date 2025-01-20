@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element: <AllTrainer />,
       },
       {
-        path:"/trainerdetails",
+        path:"/trainerdetails/:id",
         element:<TrainerDetails />
       },
       {

@@ -34,6 +34,7 @@ const BeATrainer = () => {
     fullName: "",
     email: "",
     age: "",
+    experience:"",
     profileImage: "",
     skills: [],
     availableDays: [],
@@ -68,10 +69,11 @@ const BeATrainer = () => {
     const age=form.age.value;
     const image=form.image.value;
     const skill=formData.skills;
+    const experience=parseInt(form.experience.value);
     const days=selectedDays;
     const availableTime=parseInt(form.availableTime.value);
     const description=form.description.value;
-    const formDatas={name,email,age,image,skill,days,availableTime,description,status:"pending",role};
+    const formDatas={name,email,age,image,skill,days,availableTime,description,status:"pending",role,experience};
     console.log(formDatas);
   try{
     const res=await axiosPublic.post('/appliedtrainer',formDatas);
@@ -131,6 +133,18 @@ const BeATrainer = () => {
             type="number"
             name="age"
             value={formData.age}
+            onChange={handleChange}
+            required
+            className="block w-full p-2 border border-gray-300 rounded-lg"
+          />
+        </div>
+         {/* Age */}
+         <div className="mb-4">
+          <label className="block mb-2 font-medium text-white">Experience</label>
+          <input
+            type="number"
+            name="experience"
+            value={formData.experience}
             onChange={handleChange}
             required
             className="block w-full p-2 border border-gray-300 rounded-lg"
