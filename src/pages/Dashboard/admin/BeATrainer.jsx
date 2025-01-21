@@ -75,7 +75,7 @@ const BeATrainer = () => {
     const days=selectedDays;
     const availableTime=parseInt(form.availableTime.value);
     const description=form.description.value;
-    const formDatas={name,email,age,image,skill,days,availableTime,description,status:"pending",role,experience};
+    const formDatas={name,email,age,image,skill,days,availableTime,description,status:"pending",role,experience,slot:""};
     console.log(formDatas);
   try{
     const res=await axiosPublic.post('/appliedtrainer',formDatas);
