@@ -88,7 +88,7 @@ const router = createBrowserRouter([
       },
      {
       path:'alltraineradmin',
-      element:<AllTrainerAdmin />
+      element:<AdminRoute><AllTrainerAdmin /></AdminRoute>
      },
       {
         path: "alltrainer",
@@ -132,7 +132,7 @@ const router = createBrowserRouter([
       //member routes
       {
         path:"activity",
-        element:<ActivityLog />
+        element:<PrivateRoute><ActivityLog /></PrivateRoute>
       },
       {
         path:"profile",

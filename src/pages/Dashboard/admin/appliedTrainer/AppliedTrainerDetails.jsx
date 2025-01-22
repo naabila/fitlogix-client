@@ -2,19 +2,23 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
-import Swal from 'sweetalert2';
-
+import { Button, Modal,Label,Textarea } from "flowbite-react";
+import { useState } from "react";
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { Fade } from 'react-awesome-reveal';
-
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
+
+
 function AppliedTrainerDetails() {
+  
+  const [openModal, setOpenModal] = useState(false);
+  const[feedback,setFeedback]=useState('')
   const axiosSecure = useAxiosSecure();
   const axiosPublic=useAxiosPublic();
   const navigate=useNavigate()
   const { id } = useParams();
-console.log(id)
+
   // Fetch trainer details
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ['appliedTrainerDetailss', id],
@@ -30,7 +34,7 @@ console.log(id)
     },
   });
 
-console.log("applied tainer data",data);
+
 // Loading state
   if (isLoading) return <Loading />;
 // Check if data exists
@@ -54,8 +58,26 @@ const handleAcceptTrainer = async (data) => {
   
 };
 
+//Reject Trainer
+const handleReject = async (data) => {
+  try{
+   const applicantData={name:data.name,email:data.email,status:data.status="rejected",image:data.image,feedback,applicantId:data._id};
+   console.log("reject",applicantData)
+   const res=await axiosSecure.post('/rejecttrainer',applicantData);
+   
+   if(res.data.insertedId){
+     setOpenModal(false)
+     console.log(res.data)
+     navigate('/dashboard/appliedtrainer')
+   }
+  }catch(err){
+   console.log(err)
+  }
+   
+ };
+
   // Destructure data
-  const { name, age,image, email, status,description,skill } = data;
+  const { name, age,image, email,description,skill,experience } = data;
 
   return (
    <div className="container mx-auto p-4">
@@ -85,7 +107,7 @@ const handleAcceptTrainer = async (data) => {
              <div className="flex space-x-4 mt-4">
              <button className='bg-deepOrange text-white font-semibold px-8 text-xl hover:bg-customBg transition-all hover:border py-3'  onClick={()=>handleAcceptTrainer(data)}>Accept</button>
 
-             <button className='bg-deepOrange text-white font-semibold px-8 text-xl hover:bg-customBg transition-all hover:border py-3' >Reject</button>
+             <button onClick={() => setOpenModal(true)} className='bg-deepOrange text-white font-semibold px-8 text-xl hover:bg-customBg transition-all hover:border py-3' >Reject</button>
              </div>
            </div>
            </Fade>
@@ -112,6 +134,69 @@ const handleAcceptTrainer = async (data) => {
            </div>
            </Fade>
          </div>
+
+         {/* Modal */}
+         <Modal show={openModal} onClose={() => setOpenModal(false)}>
+        <Modal.Header className='bg-[#3c3c3c]'>
+          <h2>Give Feedback</h2>
+        </Modal.Header>
+        <Modal.Body className='bg-[#3c3c3c]'>
+          <div className="space-y-6">
+          <div className='flex gap-5 items-center'>
+            <img className='h-[200px] w-[200px] object-cover' src={image} alt="trainer" />
+           <div>
+             {/* name */}
+             <div className='flex gap-2'>
+             <p className='font-semibold '>Name:</p>
+            <p>{name}</p>
+            </div>
+            {/* age */}
+            
+            <div className='flex gap-2'>
+             <p className='font-semibold '>Age:</p>
+            <p>{age}</p>
+            </div>
+            {/* email */}
+            <div className='flex gap-2'>
+             <p className='font-semibold '>Email:</p>
+            <p>{email}</p>
+            </div>
+            {/* experience */}
+            <div className='flex gap-2'>
+             <p className='font-semibold '>Experience:</p>
+            <p>{experience}</p>
+            </div>
+            {/* description */}
+            <div className='flex flex-col gap-2'>
+             <p className='font-semibold '>Details:</p>
+            <p>{description}</p>
+            </div>
+
+           </div>
+          </div>
+            <div>
+                       <Label
+                         htmlFor="Feedback"
+                         value="Feedback"
+                         className="mb-2 block text-white"
+                       />
+                       <Textarea
+                         id="className"
+                         name="className"
+                         type="text"
+                         placeholder="Enter class name"
+                         value={feedback}
+                         onChange={(e) => setFeedback(e.target.value)}
+                         required
+                       />
+                     </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer className='bg-[#3c3c3c]'>
+          <Button onClick={()=>handleReject(data)} className='bg-deepOrange'>Submit</Button>
+         
+        </Modal.Footer>
+      </Modal>
        </div>
   );
 }

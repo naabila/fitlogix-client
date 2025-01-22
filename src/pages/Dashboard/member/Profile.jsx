@@ -1,8 +1,12 @@
 import React from 'react'
+import SectionBanner from '../../../components/SectionBanner'
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <SectionBanner head='Your Profile' />
+     
+    </>
   )
 }
 
