@@ -39,6 +39,7 @@ const changePassword=(email)=>{
  
   //get token and store
   if(currentUser){
+    console.log(currentUser)
     const userInfo={email:currentUser.email};
     axiosPublic.post("/jwt",userInfo)
     .then(res=>{

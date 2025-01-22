@@ -11,9 +11,9 @@ function AdminRoute({children}) {
     const location=useLocation();
     if(loading) return <Loading></Loading>
     if (isLoading) return <Loading></Loading>
-    if (role === 'admin') return children
+    if (role === 'member') return children
   return (
-    <Navigate to="/dashboard/alltraineradmin" state={ location.pathname} replace></Navigate>
+    <Navigate to="/dashboard" state={ location.pathname} replace></Navigate>
   )
 }
 

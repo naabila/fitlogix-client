@@ -28,6 +28,7 @@ import BeATrainer from "../pages/Dashboard/admin/BeATrainer";
 import PrivateRoute from "./PrivateRoute";
 import AppliedTrainerDetails from "../pages/Dashboard/admin/appliedTrainer/AppliedTrainerDetails";
 import AllTrainerAdmin from "../pages/Dashboard/admin/appliedTrainer/AllTrainerAdmin";
+import MemberRout from "../routs/MemberRout"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
+      {
+        path: "/dashboard",
+   element:<AdminRoute><AllTrainerAdmin /></AdminRoute>
+      },
       //admin routes
       {
         path:'allsubscriber',
@@ -91,6 +96,7 @@ const router = createBrowserRouter([
       element:<AdminRoute><AllTrainerAdmin /></AdminRoute>
      },
       {
+        index:true,
         path: "alltrainer",
         element: <AdminRoute><AllTrainer /></AdminRoute>,
       },
@@ -132,7 +138,9 @@ const router = createBrowserRouter([
       //member routes
       {
         path:"activity",
-        element:<PrivateRoute><ActivityLog /></PrivateRoute>
+        element:<MemberRout>
+          <PrivateRoute><ActivityLog /></PrivateRoute>
+        </MemberRout>
       },
       {
         path:"profile",
