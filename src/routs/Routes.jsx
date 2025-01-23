@@ -29,6 +29,7 @@ import PrivateRoute from "./PrivateRoute";
 import AppliedTrainerDetails from "../pages/Dashboard/admin/appliedTrainer/AppliedTrainerDetails";
 import AllTrainerAdmin from "../pages/Dashboard/admin/appliedTrainer/AllTrainerAdmin";
 import MemberRout from "../routs/MemberRout"
+import TrainerRoute from "./TrainerRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path:"/booktrainer",
+        path:"/booktrainer/:id",
         element:<PrivateRoute><BookedTrainer /></PrivateRoute>
       },
       {
@@ -74,10 +75,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path:'*',
-    element:<Error />
-  },
+  // {
+  //   path:'*',
+  //   element:<Error />
+  // },
   {
     path: "/dashboard",
     element: <DashboardLayout />,
@@ -123,14 +124,16 @@ const router = createBrowserRouter([
       },
       //trainer route
       {
+        path:"addslot/:email",
+        element:<TrainerRoute>
+        <AddNewSlot />
+        </TrainerRoute>
+      },
+      {
         path:"manageslots",
         element:<ManageSlots />
       },
 
-      {
-        path:"addslot",
-        element:<AddNewSlot />
-      },
       {
         path:"addforum",
         element:<AddForum />

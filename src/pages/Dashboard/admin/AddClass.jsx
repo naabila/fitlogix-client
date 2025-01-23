@@ -51,6 +51,7 @@ const AddClass = () => {
         className,
         image: imageUrl, 
         details,
+        bookingCount:0
       };
 
       // Add class to the database

@@ -29,7 +29,7 @@ function TrainerDetails() {
   if(!data || data.length===0){
     return <p>No data found</p>
   }
-  const{image,name,experience,email,description,days,age,skill}=data
+  const{image,name,experience,email,description,days,age,skill,_id}=data
   return (
     <>
         <div className="container mx-auto p-4">
@@ -58,13 +58,13 @@ function TrainerDetails() {
           <p>
             <span className="font-bold">Phone:</span> 801546142343243
           </p>
-          <h3 className="mt-4 text-xl font-bold text-orange-600">Available Slots:</h3>
+          <h3 className="mt-16 lg:mt-4 text-xl font-bold text-orange-600">Available Slots:</h3>
           <div className='flex gap-3 mt-5'>
         {
           days.map((d,indx)=>{
            return(
             
-           <Link key={indx} to="/booktrainer">
+           <Link key={indx} to={`/booktrainer/${_id}?day=${d}`}>
            <input
   type="button"
   value={d} 

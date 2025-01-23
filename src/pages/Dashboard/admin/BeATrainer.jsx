@@ -62,40 +62,66 @@ const BeATrainer = () => {
     setFormData({ ...formData, availableDays: selected });
   };
 
-  const handleSubmit = async(e) => {
-    const selectedDays = formData.availableDays.map((day) => day.value);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const form=e.target;
-    const name=form.fullName.value;
-    const email=form.email.value;
-    const age=form.age.value;
-    const image=form.image.value;
-    const skill=formData.skills;
-    const experience=parseInt(form.experience.value);
-    const days=selectedDays;
-    const availableTime=parseInt(form.availableTime.value);
-    const description=form.description.value;
-    const formDatas={name,email,age,image,skill,days,availableTime,description,status:"pending",role,experience,slot:""};
+    const selectedDays = formData.availableDays.map((day) => day.value);
+    const form = e.target;
+    const name = form.fullName.value;
+    const email = form.email.value;
+    const age = form.age.value;
+    const image = form.image.value;
+    const skill = formData.skills;
+    const experience = parseInt(form.experience.value);
+    const days = selectedDays;
+    const availableTime = parseInt(form.availableTime.value);
+    const description = form.description.value;
+  
+    const formDatas = {
+      name,
+      email,
+      age,
+      image,
+      skill,
+      days,
+      availableTime,
+      description,
+      status: "pending",
+      role,
+      experience,
+      slot: "",
+    };
+  
     console.log(formDatas);
-  try{
-    const res=await axiosPublic.post('/appliedtrainer',formDatas);
-    if(res.data.insertedId){
-      
+  
+    try {
+      const res = await axiosPublic.post('/appliedtrainer', formDatas);
+  
+      // Check the response for the message
+      if (res.data.message === "Application already exists") {
+        Swal.fire({
+          title: "Application Exists Already!",
+          text: res.data.message, 
+          icon: "warning",
+        });
+      } else if (res.data.insertedId) {
+        Swal.fire({
+          title: "Application Sent!",
+          text: "You applied successfully",
+          icon: "success",
+        });
+        e.target.reset();
+        navigate('/');
+      }
+    } catch (err) {
+      console.error(err);
       Swal.fire({
-        title: "Application Sent!",
-        text: "You applied successfully",
-        icon: "success"
+        title: "Error!",
+        text: "An error occurred. Please try again later.",
+        icon: "error",
       });
-      e.target.reset();
-      navigate('/')
-    
     }
-    
-  }catch(err){
-    console.log(err)
-  }
-    
-  }
+  };
+  
 
   return (
     <Fade>
@@ -141,7 +167,7 @@ const BeATrainer = () => {
             className="block w-full p-2 border border-gray-300 rounded-lg"
           />
         </div>
-         {/* Age */}
+         {/* experience */}
          <div className="mb-4">
           <label className="block mb-2 font-medium text-white">Experience</label>
           <input

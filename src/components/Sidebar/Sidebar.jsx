@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Logo from '../Logo'
 import { NavLink } from 'react-router-dom'
 import { FaRegUser } from "react-icons/fa";
@@ -14,10 +14,11 @@ import { RxActivityLog } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
 import { GrYoga } from "react-icons/gr";
 import useRole from '../../hooks/useRole';
+import { AuthContext } from '../../ContextProviders/AuthContextProvider';
 function Sidebar() {
 //user roles
 const[role,isLoading]=useRole();
-
+const{user}=useContext(AuthContext);
 
    const adminLinks=<div className='flex flex-col gap-8'>
    <NavLink
@@ -77,7 +78,8 @@ const trainerLinks=<div className='flex flex-col gap-8'>
         }
       ><IoMdTimer className='text-base' /><span>Manage Slots</span> </NavLink>
       <NavLink
-        to="addslot"
+        
+        to={`addslot/${user?.email}`}
         className={ ({ isActive }) =>
           isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
         }

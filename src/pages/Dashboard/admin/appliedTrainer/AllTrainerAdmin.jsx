@@ -6,9 +6,13 @@ import SectionHeading from '../../../../components/SectionHeading';
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import useRole from '../../../../hooks/useRole';
+import { Navigate } from 'react-router-dom';
 
 function AllTrainerAdmin() {
+
     const axiosSecure=useAxiosSecure();
+    
   const { isLoading, data,refetch } = useQuery({
     queryKey: ['trainers'],
     queryFn: async ()=>{

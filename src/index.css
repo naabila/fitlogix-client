@@ -21,3 +21,6 @@ p{
 section{
     background: #1A1A1A;
 }
+img{
+    max-width: 100%;
+}
