@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../ContextProviders/AuthContextProvider';
+import { toast } from 'react-toastify';
 
 function CheckoutForm({ pakagePrice,trainerName,slotName,pakageName,className }) {
   const stripe = useStripe();
@@ -86,7 +87,7 @@ const trainerClass=className;
         try {
           const res = await axiosSecure.post('/payments', payment);
           console.log('Payment saved:', res.data);
-          
+          toast('Payment successfull')
         } catch (err) {
           console.error('Error saving payment:', err);
         }
@@ -101,9 +102,9 @@ const trainerClass=className;
           style: {
             base: {
               fontSize: '16px',
-              color: '#424770',
+              color: '#fff',
               '::placeholder': {
-                color: '#aab7c4',
+                color: '#fff',
               },
             },
             invalid: {
@@ -112,7 +113,7 @@ const trainerClass=className;
           },
         }}
       />
-      <button type="submit" disabled={!stripe || !clientSecret}>
+      <button className='bg-deepOrange text-white font-semibold px-8 text-xl hover:bg-customBg transition-all hover:border my-5' type="submit" disabled={!stripe || !clientSecret}>
         Pay
       </button>
       {transactionId && <p className="text-green-600"> Your transaction id: {transactionId}</p>}

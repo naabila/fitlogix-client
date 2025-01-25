@@ -4,6 +4,8 @@ import { loadStripe } from "@stripe/stripe-js";
 
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import SectionHeading from '../../components/SectionHeading';
+import SectionBanner from '../../components/SectionBanner';
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 function Payment() {
@@ -17,8 +19,10 @@ function Payment() {
     console.log(trainerName,slotName,pakageName,pakagePrice)
   return (
     <>
+    <SectionBanner head='Pay here' />
       <div className="container mx-auto">
-      <div>
+      
+      <div className="mt-10">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm pakagePrice={pakagePrice}
                     trainerName={trainerName}

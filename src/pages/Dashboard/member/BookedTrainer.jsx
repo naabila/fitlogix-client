@@ -61,13 +61,13 @@ function BookedTrainer() {
   
     // Log booking data
     console.log("Selected Package:", bookData);
-  //  try{
-  //   const {data}=await axiosSecure.post('/bookedtrainer',bookData);
-  //   navigate("/payment")
-  //   alert("trainer booked");
-  //  }catch(err){
-  //   console.log(err)
-  //  }
+   try{
+    const {data}=await axiosSecure.post('/bookedtrainer',bookData);
+    navigate("/payment")
+    alert("trainer booked");
+   }catch(err){
+    console.log(err)
+   }
 
   navigate(`/payment?trainerName=${data?.name}&slotName=${slot}&pakageName=${pakage?.name}&pakagePrice=${pakage.value}&className=${className}`)
   };
