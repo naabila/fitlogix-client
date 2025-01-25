@@ -94,6 +94,7 @@ const trainerLinks=<div className='flex flex-col gap-8'>
 
       </div>
 
+// member links
 const memberLinks=<div className='flex flex-col gap-8'>
 <NavLink
         to="activity"
@@ -108,7 +109,7 @@ const memberLinks=<div className='flex flex-col gap-8'>
         }
       ><CgProfile  className='text-base' /><span>Profile</span> </NavLink>
       <NavLink
-        to="bookedtrainer"
+        to="bookedtrainerbymember"
         className={ ({ isActive }) =>
           isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
         }

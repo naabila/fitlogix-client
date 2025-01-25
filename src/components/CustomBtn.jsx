@@ -7,4 +7,4 @@ function CustomBtn({children,handleClick}) {
   )
 }
 
-export default CustomBtn
+export default CustomBtn;

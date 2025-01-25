@@ -9,11 +9,12 @@ import { AuthContext } from '../../../ContextProviders/AuthContextProvider';
 import { Fade } from 'react-awesome-reveal';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 function AddNewSlot() {
   const { user } = useContext(AuthContext);
   const [selectedClassName, setSelectedClassName] = useState('');
-
+const axiosPublic=useAxiosPublic();
   const axiosSecure = useAxiosSecure();
 //loading class
 
@@ -92,7 +93,7 @@ const { data:classData, isLoading: isClassLoading, error: classError } = useQuer
     console.log('Payload for API:', payload);
     try {
       
-      const response = await axiosSecure.post('/slots', payload);
+      const response = await axiosPublic.post('/slots', payload);
       console.log('Response from API:', response.data);
       if (response.data.insertedId) {
         Swal.fire({
@@ -128,7 +129,7 @@ console.log("class",classData)
   return (
     <Fade>
       <div className="max-w-[900px] mx-auto mt-10 bg-[#3c3c3c] p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Become a Trainer</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Add new slot</h2>
         <form onSubmit={handleSlotSubmit}>
           {/* Full Name */}
           <div className="mb-4">
