@@ -3,10 +3,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { AuthContext } from '../../ContextProviders/AuthContextProvider';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function CheckoutForm({ pakagePrice,trainerName,slotName,pakageName,className }) {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate=useNavigate();
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   const [clientSecret, setClientSecret] = useState('');
@@ -87,7 +89,8 @@ const trainerClass=className;
         try {
           const res = await axiosSecure.post('/payments', payment);
           console.log('Payment saved:', res.data);
-          toast('Payment successfull')
+          toast('Payment successfull');
+          navigate("/alltrainer")
         } catch (err) {
           console.error('Error saving payment:', err);
         }

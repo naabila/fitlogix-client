@@ -137,7 +137,7 @@ const router = createBrowserRouter([
       },
       {
         path:"manageslots",
-        element:<ManageSlots />
+        element:<TrainerRoute><ManageSlots /></TrainerRoute>
       },
 
       {

@@ -40,7 +40,7 @@ function BookedTrainer() {
   }
 
   // Onsubmit
-  const handleBooking=(e) => {
+  const handleBooking=async (e) => {
     e.preventDefault();
   
      // Construct booking data
@@ -63,13 +63,13 @@ function BookedTrainer() {
     console.log("Selected Package:", bookData);
    try{
     const {data}=await axiosSecure.post('/bookedtrainer',bookData);
-    navigate("/payment")
-    alert("trainer booked");
+    navigate(`/payment?trainerName=${data?.name}&slotName=${slot}&pakageName=${pakage?.name}&pakagePrice=${pakage.value}&className=${className}`)
+
+    
    }catch(err){
     console.log(err)
    }
 
-  navigate(`/payment?trainerName=${data?.name}&slotName=${slot}&pakageName=${pakage?.name}&pakagePrice=${pakage.value}&className=${className}`)
   };
 
   
