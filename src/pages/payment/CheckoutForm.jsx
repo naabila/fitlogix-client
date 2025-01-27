@@ -76,7 +76,7 @@ const trainerClass=className;
 
         const payment = {
           email: user.email,
-          price: totalPrice,
+          price: parseInt(totalPrice),
           transactionId: paymentIntent.id,
           date: new Date(),
         pakage,

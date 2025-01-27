@@ -15,7 +15,7 @@ function Header() {
     <Headroom>
       
       <Navbar
-        className="bg-black z-50 bg-opacity-80 py-6 font-semibold  shadow-md lg:px-20"
+        className="bg-customBg z-50 bg-opacity-80 py-6 font-semibold  shadow-md lg:px-20"
         fluid
         rounded
       >

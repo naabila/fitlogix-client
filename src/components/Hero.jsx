@@ -7,7 +7,7 @@ import Header3 from "../../../client/src/assets/h3.jpg"
 function Hero() {
   return (
     <>
-    <div  className="h-[50vh] md:h-[80vh] relative">
+    <div  className="h-[50vh] md:h-[85vh] relative">
       <Carousel>
       {/* slide 1 */}
       <div style={{

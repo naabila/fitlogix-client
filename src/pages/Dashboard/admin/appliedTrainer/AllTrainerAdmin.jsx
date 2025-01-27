@@ -68,7 +68,7 @@ const handleDelete = (id) => {
 
   return (
     <>
-    <SectionHeading heading="All Trainer" 
+    <SectionHeading heading="Latest Transactions" 
       subHeading="Discover our certified trainers dedicated to guiding you on your fitness journey with expertise and personalized support"
     />
 

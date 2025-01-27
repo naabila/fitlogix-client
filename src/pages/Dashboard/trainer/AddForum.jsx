@@ -54,7 +54,8 @@ function AddForum() {
         image: imageUrl, 
         details,
         role,
-        vote:""
+        vote:0,
+        downVoat:0
       };
 
       // Add class to the database
