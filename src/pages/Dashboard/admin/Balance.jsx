@@ -4,6 +4,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import SectionHeading from '../../../components/SectionHeading';
 import { Table } from 'flowbite-react';
+import DynamicTitle from '../../../components/DynamicTitle';
 
 function Balance() {
   const axiosPublic=useAxiosPublic();
@@ -57,6 +58,7 @@ console.log(totalBalance)
   return (
     <>
     <SectionHeading heading="Latest Transactions" />
+    <DynamicTitle title='FitLogix | balance' />
     <div className="container mx-auto">
       {/* table */}
     <div className="overflow-x-auto mt-8 md-my-16">

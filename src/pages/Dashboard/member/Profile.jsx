@@ -5,6 +5,7 @@ import Loading from '../../../components/Loading';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../ContextProviders/AuthContextProvider';
 import { Card } from "flowbite-react";
+import DynamicTitle from '../../../components/DynamicTitle';
 
 function Profile() {
   const axiosSecure=useAxiosSecure();
@@ -32,6 +33,7 @@ function Profile() {
   return (
     <>
       <SectionBanner head='Your Profile' />
+      <DynamicTitle title='FitLogix | profile' />
       <div className="flex items-center justify-center mt-8">
       <Card className="max-w-md border border-deepOrange bg-[#3c3c3c] " imgSrc={data.image} horizontal>
       <h5 className="text-2xl font-bold tracking-tight text-white ">

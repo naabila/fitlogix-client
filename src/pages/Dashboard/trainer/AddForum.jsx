@@ -5,6 +5,7 @@ import SectionHeading from "../../../components/SectionHeading";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useRole from "../../../hooks/useRole";
+import DynamicTitle from "../../../components/DynamicTitle";
 
 function AddForum() {
   const[role]=useRole()
@@ -87,6 +88,7 @@ function AddForum() {
   return (
     <>
     <SectionHeading heading="Add Forum" />
+    <DynamicTitle title='FitLogix | Add forum' />
     <div className="max-w-xlg mx-auto p-6 bg-[#3c3c3c] border border-deepOrange rounded-lg shadow-md">
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Class Name Input */}

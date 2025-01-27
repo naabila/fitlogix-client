@@ -74,7 +74,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/payment',
-        element:<Payment />
+        element:<PrivateRoute><Payment /></PrivateRoute>
       }
     ],
   },
@@ -158,7 +158,7 @@ const router = createBrowserRouter([
       },
       {
         path:"profile",
-        element:<Profile />
+        element:<MemberRout><Profile /></MemberRout>
       },
       
       {

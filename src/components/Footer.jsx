@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -6,10 +7,7 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
         {/* Logo and Description */}
         <div>
-          <h2 className="text-2xl font-bold flex items-center">
-            <img src="logo.png" alt="Logo" className="h-10 mr-2" />
-            MotiveMuscle
-          </h2>
+          <Logo />
           <p className="mt-4 text-sm">
             Per sagittis habitant netus nibh condimentum velit sociosqu ornare gravida natoque iaculis. Lorem lacus felis sodales.
           </p>
@@ -66,7 +64,7 @@ const Footer = () => {
       <div className="border-t border-gray-700 mt-10 pt-6 px-6">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="text-sm text-gray-500">
-            Copyright © 2023 MotiveMuscle by TBWBThemes
+            Copyright © 2025 FitLogix
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="hover:text-orange-400">

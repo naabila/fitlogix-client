@@ -4,6 +4,7 @@ import Loading from '../../../components/Loading';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import SectionHeading from '../../../components/SectionHeading';
+import DynamicTitle from '../../../components/DynamicTitle';
 
 function AllSubscriber() {
  const axiospublic=useAxiosPublic();
@@ -31,6 +32,7 @@ function AllSubscriber() {
   return (
     <>
     <SectionHeading heading='Newsletter Subscribers' />
+    <DynamicTitle title='FitLogix | All subscriber' />
       {/* table */}
           <div className="overflow-x-auto mt-8 md-my-16">
           <Table>

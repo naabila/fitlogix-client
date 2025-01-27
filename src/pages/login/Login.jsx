@@ -5,6 +5,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../ContextProviders/AuthContextProvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { Fade } from 'react-awesome-reveal';
+import DynamicTitle from '../../components/DynamicTitle';
 
 function Login() {
   const { googleLogin,changePassword, emailLogin,setUser } = useContext(AuthContext);
@@ -73,6 +74,7 @@ const handleForgetPass=()=>{
 }
   return (
     <Fade>
+    <DynamicTitle title='FitLogix | login' />
       <section>
       <div className="container mx-auto">
       <div className="animate__animated animate__fadeIn flex items-center justify-center min-h-screen bg-lightBlue/10">

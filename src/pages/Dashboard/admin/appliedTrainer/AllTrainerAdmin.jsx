@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useRole from '../../../../hooks/useRole';
 import { Navigate } from 'react-router-dom';
+import DynamicTitle from '../../../../components/DynamicTitle';
 
 function AllTrainerAdmin() {
 
@@ -68,6 +69,7 @@ const handleDelete = (id) => {
 
   return (
     <>
+    <DynamicTitle title='FitLogix | All Trainers' />
     <SectionHeading heading="Latest Transactions" 
       subHeading="Discover our certified trainers dedicated to guiding you on your fitness journey with expertise and personalized support"
     />

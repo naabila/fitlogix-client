@@ -8,6 +8,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { Fade } from 'react-awesome-reveal';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
+import DynamicTitle from '../../../../components/DynamicTitle';
 
 
 function AppliedTrainerDetails() {
@@ -81,6 +82,7 @@ const handleReject = async (data) => {
 
   return (
    <div className="container mx-auto p-4">
+   <DynamicTitle title='FitLogix | Applied Trainer details' />
          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
            {/* Left Column */}
            <Fade direction="left" triggerOnce>

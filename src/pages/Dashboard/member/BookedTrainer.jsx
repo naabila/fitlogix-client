@@ -77,6 +77,7 @@ function BookedTrainer() {
   const{image,name,experience,email,description,days,age,skill,_id}=data
   return (
     <>
+    <DynamicTitle title='FitLogix | booked Trainers' />
       <SectionBanner head='Book a Trainer' sub='Book a personal trainer to achieve your fitness goals with tailored guidance, flexible schedules, and expert support today!' />
 
       {/* book trainer */}

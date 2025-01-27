@@ -4,6 +4,7 @@ import Loading from "../../components/Loading";
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../components/SectionHeading";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import DynamicTitle from "../../components/DynamicTitle";
 
 function Forum() {
   const axiosPublic = useAxiosPublic();
@@ -64,6 +65,7 @@ function Forum() {
 
   return (
     <>
+    <DynamicTitle title='FitLogix | forum' />
       <SectionHeading
         heading="Explore the Fitness Forum"
         subHeading="Dive into Discussions, Share Your Insights, and Stay Motivated on Your Fitness Journey"

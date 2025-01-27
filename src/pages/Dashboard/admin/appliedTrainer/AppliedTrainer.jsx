@@ -5,6 +5,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure'
 import SectionHeading from '../../../../components/SectionHeading';
 import { Link } from 'react-router-dom';
 import Loading from '../../../../components/Loading';
+import DynamicTitle from '../../../../components/DynamicTitle';
 
 function AppliedTrainer() {
  const axiosSecure=useAxiosSecure();
@@ -27,6 +28,7 @@ function AppliedTrainer() {
   
   return (
     <>
+    <DynamicTitle title='FitLogix | Applied Trainers' />
       <SectionHeading heading="Applied Trainer" 
         subHeading="View all applications for trainer roles, review candidate qualifications, and manage recruitment efficiently for your fitness team."
       />

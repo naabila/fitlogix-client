@@ -7,6 +7,7 @@ import CheckoutForm from "./CheckoutForm";
 import SectionHeading from '../../components/SectionHeading';
 import SectionBanner from '../../components/SectionBanner';
 import { AuthContext } from '../../ContextProviders/AuthContextProvider';
+import DynamicTitle from '../../components/DynamicTitle';
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 function Payment() {
@@ -22,6 +23,7 @@ function Payment() {
   return (
     <>
     <SectionBanner head='Pay here' />
+    <DynamicTitle title='FitLogix | payment' />
       <div className="container mx-auto">
       <div className='flex  justify-start mt-10 gap-3 items-center'>
         <img className='h-[80px] w-[80px] rounded-full' src={user?.photoURL} alt="photo" />

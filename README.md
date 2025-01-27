@@ -1,9 +1,5 @@
 
----
 
-### **Client-Side README.md**
-
-```markdown
 # FitLogix - Client Side
 
 This is the client-side repository for the Gym Management System, a web application built using **React.js** and styled with **Tailwind CSS**. It provides an intuitive user interface for managing gym-related functionalities like bookings, classes, trainers, and forums.

@@ -10,6 +10,7 @@ import { Fade } from 'react-awesome-reveal';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import DynamicTitle from '../../../components/DynamicTitle';
 
 function AddNewSlot() {
   const { user } = useContext(AuthContext);
@@ -128,6 +129,7 @@ const { data:classData, isLoading: isClassLoading, error: classError } = useQuer
 console.log("class",classData)
   return (
     <Fade>
+    <DynamicTitle title='FitLogix | Add slot' />
       <div className="max-w-[900px] mx-auto mt-10 bg-[#3c3c3c] p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Add new slot</h2>
         <form onSubmit={handleSlotSubmit}>

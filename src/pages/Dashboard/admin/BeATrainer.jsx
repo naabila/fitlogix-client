@@ -125,6 +125,7 @@ const BeATrainer = () => {
 
   return (
     <Fade>
+    <DynamicTitle title='FitLogix | be a Trainer' />
       <div className="max-w-[900px] mx-auto mt-10 bg-[#3c3c3c] p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">Become a Trainer</h2>
       <form onSubmit={handleSubmit}>

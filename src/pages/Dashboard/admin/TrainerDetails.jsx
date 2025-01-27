@@ -11,6 +11,7 @@ import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../ContextProviders/AuthContextProvider';
+import DynamicTitle from '../../../components/DynamicTitle';
 
 function TrainerDetails() {
   const { id } = useParams();
@@ -63,6 +64,7 @@ function TrainerDetails() {
 
   return (
     <>
+    <DynamicTitle title='FitLogix | Trainers details' />
       <div className="container mx-auto p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           {/* Left Column */}

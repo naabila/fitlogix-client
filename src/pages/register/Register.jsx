@@ -7,6 +7,7 @@ import {Fade} from "react-awesome-reveal"
 import { GoogleAuthProvider, updateProfile } from 'firebase/auth';
 import { AuthContext } from '../../ContextProviders/AuthContextProvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import DynamicTitle from '../../components/DynamicTitle';
 
 function Register() {
   const axiosPublic=useAxiosPublic()
@@ -66,6 +67,7 @@ function Register() {
 
   return (
     <Fade>
+    <DynamicTitle title='FitLogix | register' />
       <div className='bg-[#1A1A1A]'>
       <div className="container  mx-auto ">
       <div className="flex items-center justify-center min-h-screen">

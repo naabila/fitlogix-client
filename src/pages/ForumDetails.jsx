@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
 import SectionBanner from '../components/SectionBanner';
+import DynamicTitle from '../components/DynamicTitle';
 
 function ForumDetails() {
     const{id}=useParams();
@@ -33,6 +34,7 @@ function ForumDetails() {
     console.log("payment",data)
   return (
     <>
+        <DynamicTitle title='FitLogix | forum details' />
         <SectionBanner head='Blog Post' />
         <div className="container mx-auto my-10">
             <div className="grid px-5 grid-cols-1 md:grid-cols-2 items-center ">

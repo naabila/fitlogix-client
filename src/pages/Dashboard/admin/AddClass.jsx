@@ -4,6 +4,7 @@ import axios from "axios"; // Import Axios
 import SectionHeading from "../../../components/SectionHeading";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import DynamicTitle from "../../../components/DynamicTitle";
 
 const AddClass = () => {
   const axiosSecure = useAxiosSecure();
@@ -84,6 +85,7 @@ const AddClass = () => {
   return (
     <>
       <SectionHeading heading="Add Class" />
+      <DynamicTitle title='FitLogix | add class' />
       <div className="max-w-xl mx-auto p-6 bg-[#3c3c3c] border border-deepOrange rounded-lg shadow-md">
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Class Name Input */}
