@@ -12,7 +12,7 @@ function TeamSection({trainerData}) {
 
        <section className='py-10'>
        <SectionHeading heading='Meet Our Team' subHeading='Our team is dedicated to promoting long-term health through evidence-based fitness strategies, emphasizing the importance of aerobic fitness for improved longevity and overall well-being' />
-       <div className="container mx-auto">
+       <div className="container mx-auto px-5">
             {/* trainer card */}
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 my-10 gap-8">
                   {

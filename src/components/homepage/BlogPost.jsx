@@ -10,7 +10,7 @@ function BlogPost({forumData}) {
         <SectionHeading heading='Latest Fitness Article' subHeading='A recent study reveals that aerobic fitness, measured by VO₂ max, is a stronger predictor of longevity than body mass index (BMI), emphasizing the importance of cardiovascular health over weight alone' />
 
         {/* featured class */}
-       <div className="container mx-auto my-10">
+       <div className="container mx-auto my-10 px-5">
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           forumData.map(latest=>{
