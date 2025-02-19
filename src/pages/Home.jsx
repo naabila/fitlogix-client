@@ -14,6 +14,7 @@ import TeamSection from '../components/homepage/TeamSection';
 import Teastimonial from '../components/homepage/Teastimonial';
 import Pricing from '../components/Pricing';
 import WhyChooseUs from '../components/WhyChooseUs';
+import OurValues from '../components/OurValues';
 
 
 function Home() {
@@ -96,6 +97,7 @@ const { isLoading:reviewLoading, data:reviewData } = useQuery({
     <Teastimonial reviewData={reviewData} />
     <WhyChooseUs />
     <BlogPost forumData={forumData} />
+    <OurValues />
     <TeamSection trainerData={trainerData} />
     <NewsLetter />
    
