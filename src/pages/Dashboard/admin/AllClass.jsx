@@ -5,6 +5,7 @@ import Loading from "../../../components/Loading";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import DynamicTitle from "../../../components/DynamicTitle";
 import SectionHeading from "../../../components/SectionHeading";
+import OurValues from "../../../components/OurValues";
 
 const AllClass = () => {
   const axiosPublic = useAxiosPublic();
@@ -169,6 +170,7 @@ const AllClass = () => {
           </button>
         </div>
       </div>
+      <OurValues />
     </>
   );
 };
