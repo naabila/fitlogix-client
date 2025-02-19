@@ -1,9 +1,7 @@
 import React from 'react'
-import { Carousel } from "flowbite-react";
 import 'flowbite';
-import useRole from '../hooks/useRole';
 import NewsLetter from '../components/homepage/NewsLetter';
-import Hero from '../components/Hero';
+import Hero from "../components/Hero"
 import About from '../components/homepage/About';
 import DynamicTitle from '../components/DynamicTitle';
 import FeaturesSection from '../components/homepage/FeatureSection';

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from "flowbite-react";
 import { Link } from 'react-router-dom';
-import Header1 from "../../../client/src/assets/h1.jpg";
-import Header2 from "../../../client/src/assets/h2.jpg"
-import Header3 from "../../../client/src/assets/h3.jpg"
+import Header1 from "../assets/h1.jpg";
+import Header2 from "../assets/h2.jpg"
+import Header3 from "../assets/h3.jpg"
 function Hero() {
   return (
     <>

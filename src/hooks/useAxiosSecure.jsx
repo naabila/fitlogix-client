@@ -5,7 +5,7 @@ import { AuthContext } from "../ContextProviders/AuthContextProvider";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL:'https://fitlogix-nabilas-projects-271be628.vercel.app'
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
