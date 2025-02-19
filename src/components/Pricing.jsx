@@ -38,14 +38,14 @@ const Pricing = () => {
 
   return (
     <>
-    <div className="pt-5 lg:py-20 ">
+    <div className="pt-5 lg:py-10 ">
     <SectionHeading heading="Choose Your Perfect Plan" subHeading='Flexible pricing options designed to fit your needs. Get started today!' />
         <div className="py-16 flex justify-center">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-11/12 max-w-6xl">
         {plans.map((plan, index) => (
           <div
             key={index}
-            className={`border-2 border-gray-700 py-16 px-8 rounded-lg text-white relative ${
+            className={`border-4 border-gray-700 py-16 px-8 rounded-lg text-white relative ${
               plan.popular ? "border-orange-500" : ""
             }`}
           >
