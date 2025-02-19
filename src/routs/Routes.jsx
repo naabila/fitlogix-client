@@ -123,7 +123,7 @@ const router = createBrowserRouter([
       },
       {
         path: "balance",
-        element: <AdminRoute><Balance /></AdminRoute>,
+        element: <PrivateRoute><Balance /></PrivateRoute>,
       },
       {
         path:"addclass",

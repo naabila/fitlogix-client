@@ -114,7 +114,12 @@ const memberLinks=<div className='flex flex-col gap-8'>
           isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
         }
       ><GrYoga className='text-base' /><span>Booked Trainer</span> </NavLink>
-      
+      <NavLink
+              to="balance"
+              className={ ({ isActive }) =>
+                isActive ? "text-deepOrange text-xl flex items-center gap-2 " : " text-xl flex items-center gap-2 "
+              }
+            ><MdAccountBalance className='text-base' /><span>Balance</span> </NavLink>
 
       </div>
   return (
