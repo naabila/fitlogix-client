@@ -12,6 +12,7 @@ import Loading from '../components/Loading';
 import BlogPost from '../components/homepage/BlogPost';
 import TeamSection from '../components/homepage/TeamSection';
 import Teastimonial from '../components/homepage/Teastimonial';
+import Pricing from '../components/Pricing';
 
 
 function Home() {
@@ -90,6 +91,7 @@ const { isLoading:reviewLoading, data:reviewData } = useQuery({
     <FeaturesSection />
     <About />
     <FeaturedClass latestClassData={latestClassData} />
+    <Pricing />
     <Teastimonial reviewData={reviewData} />
     <BlogPost forumData={forumData} />
     <TeamSection trainerData={trainerData} />
